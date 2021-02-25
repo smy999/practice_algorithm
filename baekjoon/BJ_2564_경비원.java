@@ -18,25 +18,31 @@ public class BJ_2564_경비원 {
 		R = Integer.parseInt(st.nextToken());
 
 		N = Integer.parseInt(br.readLine());
-		area = new int[N][2];
+		area = new int[N+1][3];
 
-		for(int i = 0; i < N; i++) {
+		for(int i = 0; i <= N; i++) {
 			st = new StringTokenizer(br.readLine());
-			area[i][0] = Integer.parseInt(st.nextToken());
-			area[i][1] = Integer.parseInt(st.nextToken());
+			int d = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
+			int r = 0, c = 0;
+			switch(d) {
+			case 1: r = 0; c = b; break;
+			case 2: r = R; c = b; break;
+			case 3: r = b; c = 0; break;
+			case 4: r = b; c = C; break;
+			}
+			area[i][0] = r;
+			area[i][1] = c;
+			area[i][2] = d;
 		}
 
-		st = new StringTokenizer(br.readLine());
-		D = Integer.parseInt(st.nextToken());
-		B = Integer.parseInt(st.nextToken());
-
 		for(int i = 0; i < N; i++) {
-			if(D + area[i][0] == 3) {
-				sum += (int)Math.min(area[i][1]+B, 2*C-B-area[i][1]);
-			} else if(D + area[i][0] == 7) {
-				sum += (int)Math.min(area[i][1]+B, 2*R-B-area[i][1]);
+			if(area[N][2] + area[i][2] == 3) {
+				sum += (int)Math.min(area[N][1]+area[i][1]+R, 2*C-area[N][1]-area[i][1]+R);
+			} else if(area[N][2] + area[i][2] == 7) {
+				sum += (int)Math.min(area[N][0]+area[i][0]+C, 2*R-area[N][0]-area[i][0]+C);
 			} else {
-				sum += B + area[i][1];
+				sum += (int)Math.abs(area[N][0]-area[i][0])+(int)Math.abs(area[N][1]-area[i][1]);
 			}
 		}
 		
