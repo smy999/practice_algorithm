@@ -22,7 +22,8 @@ class Solution
             Arrays.sort(arr);
 			for(int d = 0; d < dump; d++) {
 				if(arr[99] - arr[0] <= 1) break;
-				arr[99]--; arr[0]++;
+				arr[99]--; 
+				arr[0]++;
 				Arrays.sort(arr);
 			}
             System.out.println("#" + test_case + " " + (arr[99] - arr[0]));
