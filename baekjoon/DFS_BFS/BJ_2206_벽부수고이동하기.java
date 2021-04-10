@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 import java.util.Queue;
 import java.util.LinkedList;
 
+// idea: visited 한 단꼐 더 검사(break or not)
+
 public class BJ_2206_벽부수고이동하기 {
 
 	static int N, M, ans;
@@ -44,6 +46,7 @@ public class BJ_2206_벽부수고이동하기 {
 		
 		queue.add(new Cell(0, 0, 1, 0));
 		
+		// 시작점은 둘다 true
 		visited[0][0][0] = true;
 		visited[0][0][1] = true;
 		
@@ -58,7 +61,7 @@ public class BJ_2206_벽부수고이동하기 {
 		while(!queue.isEmpty()) {
 			Cell c = queue.poll();
 			
-			if(c.r == N-1 && c.c == M-1) {
+			if(c.r == N-1 && c.c == M-1) {	// 도착
 				ans = c.d;
 				return;
 			}
@@ -71,14 +74,14 @@ public class BJ_2206_벽부수고이동하기 {
 				
 				if(nr < 0 || nr >= N || nc < 0 || nc >= M) continue;
 				
-				if(map[nr][nc] == '1') {
+				if(map[nr][nc] == '1') {	// 벽이 있을 때
 					if(isbreak == 0 && !visited[nr][nc][1]) {
 						visited[nr][nc][1] = true;
 						queue.add(new Cell(nr, nc, nd+1, 1));
 					}
 				}
 				
-				else {
+				else {	// 벽이 없을 때 > 그냥 통과 가능 > 이전 isbreak 값 그대로 할당
 					if(!visited[nr][nc][isbreak]) {
 						visited[nr][nc][isbreak] = true;
 						queue.add(new Cell(nr, nc, nd+1, isbreak));
