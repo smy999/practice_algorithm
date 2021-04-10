@@ -34,17 +34,17 @@ public class BJ_7569_토마토 {
 				st = new StringTokenizer(br.readLine());
 				for(int j = 0; j < M; j++) {
 					int input = Integer.parseInt(st.nextToken());
-					if(input == 1) ripeQ.add(new int[] {h, i, j, 0});
-					else if(input == 0) unripeTotal++;
+					if(input == 1) ripeQ.add(new int[] {h, i, j, 0});	// 익은 토마도 큐에 담기
+					else if(input == 0) unripeTotal++;	// 안익은 토마토 수
 					box[h][i][j] = input;
 				}
 			}
 		}
 		
-		if(unripeTotal == 0) System.out.println(0);
+		if(unripeTotal == 0) System.out.println(0);	// 처음부터 다 익었을 때
 		else {
-			bfs();
-			if(unripeTotal == 0) System.out.println(tmt[3]);
+			bfs();	// 익히기
+			if(unripeTotal == 0) System.out.println(tmt[3]);	// 안 익은 토마도가 없다면, 마지막으로 익은 토마도의 일 수 가져와서 출력
 			else System.out.println(-1);
 		}
 	}
@@ -62,11 +62,11 @@ public class BJ_7569_토마토 {
 				
 				if(nh < 0 || nh >= H || nr < 0 || nr >= N || nc < 0 || nc >= M || box[nh][nr][nc] != 0) continue;
 				
-				unripeTotal--;
+				unripeTotal--;	// 하나 익음
 				
-				box[nh][nr][nc] = 1;
+				box[nh][nr][nc] = 1;	// 익음 표시
 				
-				ripeQ.add(new int[] {nh, nr, nc, tmt[3]+1});
+				ripeQ.add(new int[] {nh, nr, nc, tmt[3]+1});	// 하루 증가해서 큐에 삽입
 			}
 		}
 	}
