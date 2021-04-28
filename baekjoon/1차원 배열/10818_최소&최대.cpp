@@ -2,7 +2,6 @@
 #include <stdio.h>
 using namespace std;
 
-int main(void) {
 	/* #10818*/
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
