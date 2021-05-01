@@ -27,15 +27,18 @@ public class BJ_16918_봄버맨_풀이1 {
 		for(int i = 0; i < R; i ++) {
 			char[] tmp = br.readLine().toCharArray();
 			for(int j = 0; j < C; j++) {
-				if(tmp[j] == 'O') grid[i][j] = 1;
+				if(tmp[j] == 'O') grid[i][j] = 1;	// 폭단이 있는 자리는 1로
 			}
 		}
+		// 여기까지 입력
 		
+		// N초 동안 반복
 		for(int n = 2; n <= N; n++) {
-			if(n % 2 == 0) install(n);
-			else explode(n);
+			if(n % 2 == 0) install(n);	// 폭탄 설치
+			else explode(n);			// 폭파
 		}
 		
+		// 출력 문자열에 담기
 		for(int i = 0; i < R; i ++) {
 			for(int j = 0; j < C; j++) {
 				sb.append(grid[i][j] == 0 ? '.' : 'O');
@@ -43,9 +46,11 @@ public class BJ_16918_봄버맨_풀이1 {
 			sb.append("\n");
 		}
 		
+		// 결과 출력
 		System.out.print(sb);
 	}
 	
+	// 폭탄이 없는 곳에 일단 다 폭탄 설치하는데 현재 시간 입력
 	private static void install(int n) {
 		for(int i = 0; i < R; i++) {
 			for(int j = 0; j < C; j++) {
@@ -55,14 +60,17 @@ public class BJ_16918_봄버맨_풀이1 {
 	}
 	
 	private static void explode(int n) {
+		// 폭탄이 타 터지고 난 후 폭탄이 없어야 하는 위치 저장
 		for(int i = 0; i < R; i++) {
 			for(int j = 0; j < C; j++) {
-				if(grid[i][j] <= n-2) {
+				// 3초 전에 설치된 폭탄이면 모든 폭탄이 폭파하고 난 후, '.' 상채로 변경한다.
+				if(grid[i][j] <= n-2) {	
 					queue.add(new int[] {i, j});
 				}
 			}
 		}
 		
+		// 원래 폭탄이 있던 자리에서 4방으로 탐색하며 폭탄이 터진 후 폭탄이 없은 위치를 표시한다.
 		while(!queue.isEmpty()) {
 			int[] bomb = queue.poll();
 			int r = bomb[0];
