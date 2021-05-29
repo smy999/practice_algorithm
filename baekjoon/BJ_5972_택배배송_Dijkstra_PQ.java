@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 
-public class BJ_5972_택배배송_PQ {
+public class BJ_5972_택배배송_Dijkstra_PQ {
 	
 	static class Barn implements Comparable<Barn>{
 		int idx, dist;
