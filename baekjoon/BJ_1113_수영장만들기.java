@@ -3,8 +3,6 @@ package Study;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-import java.util.Queue;
-import java.util.LinkedList;
 
 // 참고: https://dlwnsdud205.tistory.com/29
 
