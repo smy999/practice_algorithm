@@ -1,5 +1,3 @@
-
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
@@ -32,7 +30,8 @@ public class BJ_1600_말이되고픈원숭이 {
 			this.k = k;
 			this.cnt = cnt;
 		}
-	} // Info class
+	} 
+	// Info class
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
