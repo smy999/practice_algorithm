@@ -1,6 +1,6 @@
 package workshop;
 
-// 교수님 풀이: DP(Dynamic Programming)
+// 풀이: DP(Dynamic Programming)
 
 import java.io.BufferedReader;
 import java.io.IOException;
