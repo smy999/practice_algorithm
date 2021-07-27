@@ -34,8 +34,10 @@ public class BJ_1158_요세푸스 {
 				cnt++;
 				queue.add(queue.poll());
 			}
+			
 		}
 		sb.append(queue.poll()).append(">");
 		System.out.println(sb);
 	}
+	
 }
