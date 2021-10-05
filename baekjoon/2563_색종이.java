@@ -17,7 +17,7 @@ public class BJ_2563_색종이 {
 		
 		N = Integer.parseInt(br.readLine());
 		
-		coloredPaper = new int [N][2];
+		coloredPaper = new int[N][2];
 		
 		for(int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
@@ -44,18 +44,3 @@ public class BJ_2563_색종이 {
 	}
 }
 
-
-/*
-input
-
-3
-3 7
-15 7
-5 2
-
-
-output
-
-260
-
-*/
