@@ -34,7 +34,6 @@ public class BJ_10163_색종이 {
 			for(int i = c; i < c+w; i++)
 				for(int j = r; j < r+h; j++)
 					arr[j][i] = n;
-			
 		}
 		
 		for(int n = 1; n <= N; n++) {
