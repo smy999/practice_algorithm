@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class BJ_1916_최소비용구하기_Matrix {
+public class BJ_1916_최소비용구하기_AdjMatrix {
 
 	static int N, M, start, end;
 	static int[][] adjMatrix;
